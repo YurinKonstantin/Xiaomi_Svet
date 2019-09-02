@@ -1,0 +1,60 @@
+﻿<Page
+    x:Class="Xiaomi_Svet.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Xiaomi_Svet"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <SplitView IsPaneOpen="True"
+           DisplayMode="Inline" 
+           OpenPaneLength="296">
+        <SplitView.Pane>
+            <ListView ItemsSource="{x:Bind viewDevises.ListDevices}"
+>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:DeviceM">
+                        <Grid HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="180"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{x:Bind name}" VerticalAlignment="Center" FontSize="16"/>
+                            <ToggleSwitch IsOn="{x:Bind IsSostoanie, Mode=TwoWay}" Grid.Column="1" VerticalAlignment="Center" Grid.RowSpan="2"/>
+                            <TextBlock Text="{x:Bind IsSostoanieConnect, Mode=OneWay}" Grid.Row="1"/>
+                        </Grid>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                
+            </ListView>
+        </SplitView.Pane>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Pivot Grid.Row="1" Grid.ColumnSpan="2">
+                
+                
+            </Pivot>
+            <CommandBar Grid.ColumnSpan="2">
+                
+            </CommandBar>
+            <ProgressBar Grid.Row="2" Value="18" />
+            <Button Content="drk/dsrk" Grid.Column="1" Grid.Row="2" Click="Button_Click"/>
+        </Grid>
+    </SplitView>
+   
+</Page>
